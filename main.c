@@ -62,14 +62,9 @@ int main(int argc,char *argv[])
         fprintf(stderr,"ERROR: fopen returns NULL for %s.\n",argv[2]);
         exit(EXIT_FAILURE);
     }
-    /* 
-        ALGORITHM TO EXTRACT TARGET DATA
-    1:call strtok('\\') to get a pointer to just after '\'; save pointer.
-    2:call strtok('{') to get a pointer to just after '{'
-    3:use pointer math to see if they're longer than the longest keyword
-    4:if not, copy the sequence to a zeroed buffer
-    5:strcmp all entries to find a math or 
-
+    /*
+        Find fragments that start with \ and see if they match the list in local.h.
+        If so, extract the text inside them, and in the headings.
     */
     size_t max_len=0;
     if(NWORDS==0)
